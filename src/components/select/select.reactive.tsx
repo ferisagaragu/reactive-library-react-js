@@ -1,10 +1,11 @@
 import * as React from 'react';
 import Select from "react-select";
 import makeAnimated from 'react-select/animated';
+import { SelectElement } from '../../exports/model/select-element.model';
 
 interface MultiProps {
   className?: string;
-  options: Array<any>;
+  options: Array<SelectElement>;
   onChange: Function;
   placeholder?: string;
   noOptionsMessage?: string;
@@ -15,7 +16,7 @@ interface MultiProps {
 
 interface SingleProps {
   className?: string;
-  options: Array<any>;
+  options: Array<SelectElement>;
   onChange: Function;
   placeholder?: string;
   noOptionsMessage?: string;
@@ -37,6 +38,21 @@ export const MultiSelectReactive = ({ className, options, onChange, placeholder,
       placeholder={ placeholder }
       isSearchable={ isSearchable }
       value={ value }
+      getOptionLabel={ (option: any) => option.label }
+      filterOption={
+        ({ data }: any, searchText: any) => {
+        
+          if (data.search) {
+            return data.search.toLowerCase().includes(searchText.toLowerCase());
+          }
+       
+          if (typeof data.label === 'string') {
+            return data.label.toLowerCase().includes(searchText.toLowerCase());
+          }
+
+          return true;
+        }
+      }
       isMulti
     />
   );
@@ -54,6 +70,21 @@ export const SingleSelectReactive = ({ className, options, onChange, placeholder
       placeholder={ placeholder }
       isSearchable={ isSearchable }
       value={ value }
+      getOptionLabel={ (option: any) => option.label }
+      filterOption={
+        ({ data }: any, searchText: any) => {
+        
+          if (data.search) {
+            return data.search.toLowerCase().includes(searchText.toLowerCase());
+          }
+       
+          if (typeof data.label === 'string') {
+            return data.label.toLowerCase().includes(searchText.toLowerCase());
+          }
+
+          return true;
+        }
+      }
     />
   );
 } 

@@ -5,8 +5,8 @@ import { NavMenuReactive } from './nav-menu.reactive';
 import { onWindowResize } from '../reducers/window-resize.actions';
 import { connect } from '../../exports/redux.export';
 
-const reactBurguer = require('react-burger-menu');
-const Menu = reactBurguer.slide;
+const reactBurger = require('react-burger-menu');
+const Menu = reactBurger.slide;
 
 interface Props {
   className?: string; 

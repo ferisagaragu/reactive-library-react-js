@@ -35,6 +35,7 @@ export { RenderTextAreaReactive as RenderTextArea } from './components/redux-for
 export { RenderMaskFieldReactive as RenderMaskField } from './components/redux-form/redux-render-mask-field.reactive';
 export { RenderFileFieldReactive as RenderFileField } from './components/redux-form/redux-render-file-field.reactive';
 export { RenderMultiSelectReactive as RenderMultiSelect } from './components/redux-form/redux-render-multi-select.reactive';
+export { RenderCheckBoxReactive as RenderCheckBox } from './components/redux-form/redux-render-checkbox-field.reactive';
 
 //+util
 export { 
