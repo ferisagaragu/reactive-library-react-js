@@ -36,7 +36,7 @@ export class RenderSingleSelectReactive extends React.Component<Props, State> {
       }
     } = this.props;
 
-    const errorClass = touched && error ? 'error' : '';
+    const errorClass = touched && error ? 'error' : ''; 
 
     return (
       <div className="mb-3">
@@ -48,6 +48,7 @@ export class RenderSingleSelectReactive extends React.Component<Props, State> {
       <div>
         <SingleSelectReactive 
           className={ `${className} ${errorClass}` }
+          classNamePrefix={ `${!errorClass ? className : errorClass}` }
           { ...input }
           options={ options } 
           onChange={ (value: any) => input.onChange(value) }

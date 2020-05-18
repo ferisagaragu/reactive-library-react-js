@@ -4,7 +4,9 @@ import makeAnimated from 'react-select/animated';
 import { SelectElement } from '../../exports/model/select-element.model';
 
 interface MultiProps {
+  id?: string;
   className?: string;
+  classNamePrefix?: string;
   options: Array<SelectElement>;
   onChange: Function;
   placeholder?: string;
@@ -12,10 +14,14 @@ interface MultiProps {
   defaultValue?: Array<any>;
   isSearchable?: boolean;
   value?: any;
+  isDisabled?: boolean;
+  onBlur?: Function;
 }
 
 interface SingleProps {
+  id?: string;
   className?: string;
+  classNamePrefix?: string;
   options: Array<SelectElement>;
   onChange: Function;
   placeholder?: string;
@@ -23,12 +29,28 @@ interface SingleProps {
   defaultValue?: any;
   isSearchable?: boolean;
   value?: any;
+  isDisabled?: boolean;
+  onBlur?: Function;
 }
 
-export const MultiSelectReactive = ({ className, options, onChange, placeholder, noOptionsMessage, defaultValue, isSearchable, value }: MultiProps) => {
+export const MultiSelectReactive = ({ 
+  id, 
+  className,
+  classNamePrefix,
+  options, 
+  onChange, 
+  placeholder, 
+  noOptionsMessage, 
+  defaultValue, 
+  isSearchable, 
+  value, 
+  isDisabled, 
+  onBlur 
+}: MultiProps) => {
   return (
-    <Select 
-      classNamePrefix='select'
+    <Select
+      id={ id && id }
+      classNamePrefix={ classNamePrefix }
       className={ className }
       components={ makeAnimated() }
       defaultValue={ defaultValue } 
@@ -53,15 +75,31 @@ export const MultiSelectReactive = ({ className, options, onChange, placeholder,
           return true;
         }
       }
+      isDisabled={ isDisabled }
       isMulti
+      onBlur={ () => onBlur && onBlur() }
     />
   );
 } 
 
-export const SingleSelectReactive = ({ className, options, onChange, placeholder, noOptionsMessage, defaultValue, isSearchable, value }: SingleProps) => {
+export const SingleSelectReactive = ({ 
+  id, 
+  className,
+  classNamePrefix,
+  options, 
+  onChange, 
+  placeholder, 
+  noOptionsMessage, 
+  defaultValue, 
+  isSearchable, 
+  value, 
+  isDisabled, 
+  onBlur 
+}: SingleProps) => {
   return (
     <Select
-      classNamePrefix='select'
+      id={ id && id }
+      classNamePrefix={ classNamePrefix }
       className={ className }
       defaultValue={ defaultValue } 
       options={ options }
@@ -85,6 +123,8 @@ export const SingleSelectReactive = ({ className, options, onChange, placeholder
           return true;
         }
       }
+      isDisabled={ isDisabled }
+      onBlur={ () => onBlur && onBlur() }
     />
   );
 } 

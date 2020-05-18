@@ -48,6 +48,7 @@ export class RenderMultiSelectReactive extends React.Component<Props, State> {
       <div>
         <MultiSelectReactive 
           className={ `${className} ${errorClass}` }
+          classNamePrefix={ `${className} ${errorClass} ` }
           { ...input }
           options={ options } 
           onChange={ (value: any) => input.onChange(value) }
