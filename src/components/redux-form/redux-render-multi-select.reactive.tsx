@@ -11,6 +11,7 @@ interface Props {
   defaultValue: any;
   options: Array<any>;
   isSearchable?: boolean;
+  isClearable?: boolean;
   meta: any;
 }
 
@@ -29,6 +30,7 @@ export class RenderMultiSelectReactive extends React.Component<Props, State> {
       defaultValue,
       options,
       isSearchable,
+      isClearable,
       meta: {
         error,
         warning,
@@ -58,6 +60,7 @@ export class RenderMultiSelectReactive extends React.Component<Props, State> {
           noOptionsMessage={ noOptionsMessage }
           defaultValue={ defaultValue }
           isSearchable={ isSearchable }
+          isClearable={ isClearable }
         />
         {
           touched &&

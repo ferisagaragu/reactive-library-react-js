@@ -15,6 +15,7 @@ interface MultiProps {
   isSearchable?: boolean;
   value?: any;
   isDisabled?: boolean;
+  isClearable?: boolean;
   onBlur?: Function;
 }
 
@@ -30,6 +31,7 @@ interface SingleProps {
   isSearchable?: boolean;
   value?: any;
   isDisabled?: boolean;
+  isClearable?: boolean;
   onBlur?: Function;
 }
 
@@ -44,7 +46,8 @@ export const MultiSelectReactive = ({
   defaultValue, 
   isSearchable, 
   value, 
-  isDisabled, 
+  isDisabled,
+  isClearable,
   onBlur 
 }: MultiProps) => {
   return (
@@ -76,6 +79,7 @@ export const MultiSelectReactive = ({
         }
       }
       isDisabled={ isDisabled }
+      isClearable={ isClearable }
       isMulti
       onBlur={ () => onBlur && onBlur() }
     />
@@ -94,6 +98,7 @@ export const SingleSelectReactive = ({
   isSearchable, 
   value, 
   isDisabled, 
+  isClearable,
   onBlur 
 }: SingleProps) => {
   return (
@@ -124,6 +129,7 @@ export const SingleSelectReactive = ({
         }
       }
       isDisabled={ isDisabled }
+      isClearable={ isClearable }
       onBlur={ () => onBlur && onBlur() }
     />
   );
